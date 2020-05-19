@@ -9,12 +9,17 @@ app.use('/public',express.static(path.join(__dirname,'static')));
 //Middleware again
 app.use(bodyParser.urlencoded({extended:false}));
 app.use(bodyParser.json())
+app.set('view engine','ejs');
 
 
 
 
-app.get('/',(request,response)=>{
-    response.sendFile(path.join(__dirname,'static','index.html'));
+// app.get('/',(request,response)=>{
+//     response.sendFile(path.join(__dirname,'static','index.html'));
+// });
+
+app.get('/:userQuery',(request,response)=>{
+    response.render('index',{data: {userQuery: request.params.userQuery,searchResults: ['book1','book2','book3','book4']}});
 });
 
 
