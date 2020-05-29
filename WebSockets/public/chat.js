@@ -38,5 +38,3 @@ socket.on('typing',function(data){
     feedback.innerHTML = '<p><em>'+data+' is typing a message.. </em></p>'
 });
 
-//emit is to emit an event
-// on is to listen an event.
